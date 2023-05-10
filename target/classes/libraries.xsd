@@ -19,7 +19,6 @@
         </xs:complexType>
     </xs:element>
 
-  
     <xs:complexType name="library">
     <xs:sequence>
       <xs:element type="xs:string" name="library-id"/>
@@ -30,7 +29,7 @@
       <xs:element type="tns:subscribers" name="subscribers"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="librarian">
     <xs:sequence>
       <xs:element type="xs:string" name="librarian-id"/>
@@ -40,37 +39,13 @@
       <xs:element type="xs:string" name="phoneNumber"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:complexType name="borrowing">
+
+  <xs:complexType name="subscribers">
     <xs:sequence>
-      <xs:element name="borrowing-id">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="borrow-date">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="return-date">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element type="tns:itemType" name="item"/>
+      <xs:element type="tns:subscriber" name="subscriber" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:complexType name="borrowings">
-    <xs:sequence>
-      <xs:element type="tns:borrowing" name="borrowing" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  
+
   <xs:complexType name="subscriber">
     <xs:sequence>
       <xs:element name="subscriber-id">
@@ -112,14 +87,38 @@
       <xs:element type="tns:borrowings" name="borrowings"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:complexType name="subscribers">
+
+  <xs:complexType name="borrowings">
     <xs:sequence>
-      <xs:element type="tns:subscriber" name="subscriber" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="tns:borrowing" name="borrowing" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   
-    <xs:complexType name="itemType">
+  <xs:complexType name="borrowing">
+    <xs:sequence>
+      <xs:element name="borrowing-id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="borrow-date">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="return-date">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="tns:item" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:complexType name="item">
     <xs:sequence>
       <xs:element name="item-id">
         <xs:simpleType>

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class LibraryManagementWsSoapApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LibraryManagementWsSoapApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LibraryManagementWsSoapApplication.class, args);
+    }
 
 }
