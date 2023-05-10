@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://eif.viko.lt/librarymanagementwssoap" xmlns:tns="http://eif.viko.lt/librarymanagementwssoap">
-
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://eif.viko.lt/librarymanagementwssoap"
+           xmlns:tns="http://eif.viko.lt/librarymanagementwssoap">
 
 
     <xs:element name="getLibraryRequest">
@@ -20,145 +21,145 @@
     </xs:element>
 
     <xs:complexType name="library">
-    <xs:sequence>
-      <xs:element type="xs:string" name="library-id"/>
-      <xs:element type="xs:string" name="library-address"/>
-      <xs:element type="xs:string" name="library-name"/>
-      <xs:element type="xs:string" name="work-hours"/>
-      <xs:element type="tns:librarian" name="librarian"/>
-      <xs:element type="tns:subscribers" name="subscribers"/>
-    </xs:sequence>
-  </xs:complexType>
+        <xs:sequence>
+            <xs:element type="xs:string" name="library-id"/>
+            <xs:element type="xs:string" name="library-address"/>
+            <xs:element type="xs:string" name="library-name"/>
+            <xs:element type="xs:string" name="work-hours"/>
+            <xs:element type="tns:librarian" name="librarian"/>
+            <xs:element type="tns:subscribers" name="subscribers"/>
+        </xs:sequence>
+    </xs:complexType>
 
-  <xs:complexType name="librarian">
-    <xs:sequence>
-      <xs:element type="xs:string" name="librarian-id"/>
-      <xs:element type="xs:string" name="librarian-email"/>
-      <xs:element type="xs:string" name="librarian-name"/>
-      <xs:element type="xs:string" name="last-name"/>
-      <xs:element type="xs:string" name="phoneNumber"/>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:complexType name="librarian">
+        <xs:sequence>
+            <xs:element type="xs:string" name="librarian-id"/>
+            <xs:element type="xs:string" name="librarian-email"/>
+            <xs:element type="xs:string" name="librarian-name"/>
+            <xs:element type="xs:string" name="last-name"/>
+            <xs:element type="xs:string" name="phoneNumber"/>
+        </xs:sequence>
+    </xs:complexType>
 
-  <xs:complexType name="subscribers">
-    <xs:sequence>
-      <xs:element type="tns:subscriber" name="subscriber" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:complexType name="subscribers">
+        <xs:sequence>
+            <xs:element type="tns:subscriber" name="subscriber" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
 
-  <xs:complexType name="subscriber">
-    <xs:sequence>
-      <xs:element name="subscriber-id">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="subscriber-name">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="subscriber-last-name">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="address">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="email">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="phone">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element type="tns:borrowings" name="borrowings"/>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:complexType name="subscriber">
+        <xs:sequence>
+            <xs:element name="subscriber-id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="subscriber-name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="subscriber-last-name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="address">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="email">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="phone">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="tns:borrowings" name="borrowings"/>
+        </xs:sequence>
+    </xs:complexType>
 
-  <xs:complexType name="borrowings">
-    <xs:sequence>
-      <xs:element type="tns:borrowing" name="borrowing" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  
-  <xs:complexType name="borrowing">
-    <xs:sequence>
-      <xs:element name="borrowing-id">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="borrow-date">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="return-date">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element type="tns:item" name="item"/>
-    </xs:sequence>
-  </xs:complexType>
+    <xs:complexType name="borrowings">
+        <xs:sequence>
+            <xs:element type="tns:borrowing" name="borrowing" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="borrowing">
+        <xs:sequence>
+            <xs:element name="borrowing-id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="borrow-date">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="return-date">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="tns:item" name="item"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:complexType name="item">
-    <xs:sequence>
-      <xs:element name="item-id">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="author">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="copies-number">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="production-year">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="publisher">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element type="xs:string" name="status"/>
-      <xs:element name="title">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
+        <xs:sequence>
+            <xs:element name="item-id">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="author">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="copies-number">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="production-year">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="publisher">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:string" name="status"/>
+            <xs:element name="title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
 
 
 </xs:schema>

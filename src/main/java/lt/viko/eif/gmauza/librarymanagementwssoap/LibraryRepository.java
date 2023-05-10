@@ -1,6 +1,7 @@
 package lt.viko.eif.gmauza.librarymanagementwssoap;
 
 import jakarta.annotation.PostConstruct;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,11 +9,19 @@ import lt.viko.eif.librarymanagementwssoap.*;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
+/**
+ * This class represents a Library Repository that stores a collection of libraries.
+ */
 @Component
 public class LibraryRepository {
-
+    /**
+     * A map to store the libraries, where the key is the library name.
+     */
     private static final Map<String, Library> libraries = new HashMap<>();
 
+    /**
+     * Initializes the data for the repository by creating and adding a new library to the map.
+     */
     @PostConstruct
     public void initData() {
 
@@ -60,9 +69,9 @@ public class LibraryRepository {
         librarian.setPhoneNumber("+3706645654");
 
         Library central = new Library();
-        central.setLibraryName("Central Library");
-        central.setLibraryAddress("Gedimino pr.32");
-        central.setWorkHours("09h.-18h.");
+        central.setLibraryName("Village Library");
+        central.setLibraryAddress("Paklanės g. 12");
+        central.setWorkHours("07h.-18h.");
         central.setLibrarian(librarian);
         central.setSubscribers(subscribers);
 
@@ -70,6 +79,12 @@ public class LibraryRepository {
 
     }
 
+    /**
+     * Find a library by its name.
+     *
+     * @param name the name of the library to find
+     * @return the library with the given name, or null if no such library exists
+     */
     public Library findLibrary(String name) {
         Assert.notNull(name, "The library name must not be null");
         return libraries.get(name);

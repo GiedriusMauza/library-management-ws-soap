@@ -12,9 +12,18 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+/**
+ * Configuration class for setting up a SOAP web service.
+ */
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+    /**
+     * Creates a servlet registration bean for a message dispatcher servlet.
+     *
+     * @param applicationContext The ApplicationContext that the servlet should be associated with.
+     * @return A ServletRegistrationBean instance for the servlet.
+     */
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -23,6 +32,12 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
 
+    /**
+     * Creates a default WSDL 1.1 definition for the web service.
+     *
+     * @param librariesSchema The schema of the web service.
+     * @return A DefaultWsdl11Definition instance for the web service.
+     */
     @Bean(name = "libraries")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema librariesSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
@@ -33,6 +48,11 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 
+    /**
+     * Creates an XSD schema for defining the structure of the web service's messages and payloads.
+     *
+     * @return An XsdSchema instance for the web service's schema.
+     */
     @Bean
     public XsdSchema librariesSchema() {
         return new SimpleXsdSchema(new ClassPathResource("libraries.xsd"));
